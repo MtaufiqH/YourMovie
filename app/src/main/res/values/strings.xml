@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Your Movie</string>
+    <string name="search_your_movie_here">Search Your Movie here!</string>
+    <string name="cari">Cari</string>
+</resources>

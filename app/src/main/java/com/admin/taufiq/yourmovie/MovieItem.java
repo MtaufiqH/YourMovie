@@ -9,29 +9,22 @@ public class MovieItem {
     private String movieDateRelease;
     private String movieImage;
 
-    public MovieItem(JSONObject object){
+    public MovieItem(JSONObject object) {
         try {
             int id = object.getInt("id");
 
-            String movieTitle =
-                    object.getJSONArray("results").getJSONObject(0).getString("title");
+            String movieTitle = object.getString("title");
+            String movieDescription = object.getString("overview");
+            String movieDateRelease = object.getString("release_date");
+            String movieImage = object.getString("poster_path");
 
-            String movieDescription =
-                    object.getJSONArray("results").getJSONObject(0).getString("overview");
+            this.id = id;
+            this.movieTitle = movieTitle;
+            this.movieDescription = movieDescription;
+            this.movieDateRelease = movieDateRelease;
+            this.movieImage = movieImage;
 
-            String movieDateRelease =
-                    object.getJSONArray("results").getJSONObject(0).getString("release_date");
-
-            String movieImage =
-                    object.getJSONArray("results").getJSONObject(0).getString("poster_path");
-
-                this.id = id;
-                this.movieTitle = movieTitle;
-                this.movieDescription = movieDescription;
-                this.movieDateRelease = movieDateRelease;
-                this.movieImage = movieImage;
-
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -68,6 +61,7 @@ public class MovieItem {
     public String getMovieDateRelease() {
         return movieDateRelease;
     }
+
 
     public void setMovieImage(String movieImage) {
         this.movieImage = movieImage;
